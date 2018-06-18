@@ -1,0 +1,25 @@
+{
+  "name": "license-info-collector",
+  "version": "1.0.2",
+  "description": "Collects license information of all dependencies of your project",
+  "main": "./lib/index.js",
+  "types": "./lib/index.d.ts",
+  "scripts": {
+    "prepublishOnly": "tsc",
+    "build": "tsc"
+  },
+  "author": "Volume Graphics GmbH",
+  "homepage": "https://www.volumegraphics.com/",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^10.1.0",
+    "@types/semver": "^5.5.0",
+    "typescript": "^2.8.3"
+  },
+  "dependencies": {
+    "semver": "^5.5.0"
+  },
+  "publishConfig": {
+    "registry": "http://vgqa02:8081/artifactory/api/npm/npm/"
+  }
+}
