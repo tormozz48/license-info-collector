@@ -1,5 +1,5 @@
 {
-  "name": "license-info-collector",
+  "name": "@volumegraphics/license-info-collector",
   "version": "1.0.2",
   "description": "Collects license information of all dependencies of your project",
   "main": "./lib/index.js",
@@ -28,8 +28,5 @@
   },
   "dependencies": {
     "semver": "^5.5.0"
-  },
-  "publishConfig": {
-    "registry": "http://vgqa02:8081/artifactory/api/npm/npm/"
   }
 }
