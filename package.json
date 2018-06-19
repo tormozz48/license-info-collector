@@ -11,6 +11,16 @@
   "author": "Volume Graphics GmbH",
   "homepage": "https://www.volumegraphics.com/",
   "license": "MIT",
+  "keywords": [
+    "license",
+    "licensing",
+    "collect",
+    "dependencies"
+  ],
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/VolumeGraphics/license-info-collector.git"
+  },
   "devDependencies": {
     "@types/node": "^10.1.0",
     "@types/semver": "^5.5.0",
