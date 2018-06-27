@@ -1,7 +1,6 @@
 import * as path from 'path'
 import * as fs from 'fs'
 import * as semver from 'semver'
-import { PassThrough } from 'stream';
 import { License } from './section';
 
 export interface Author {
@@ -197,7 +196,9 @@ export function collectPackageInfos(packageJson: string, nodeModulePaths: string
   contents = groupSameContents(contents);
   contents.push(JSON.parse(fs.readFileSync(packageJson).toString()));
   const resolvedContents = resolveRawDependencies(contents);
-  return removeUnreferencedContents(resolvedContents, resolvedContents[resolvedContents.length - 1]);
+  const referencedContents = removeUnreferencedContents(resolvedContents, resolvedContents[resolvedContents.length - 1]);
+  referencedContents.pop();
+  return referencedContents;
 }
 
 export function findInvalidPackageContent(
@@ -221,3 +222,6 @@ for(let content of packageContents) {
 }
 return invalid;
 }
+
+let lll = collectPackageInfos("M:/work/github/license-info-printer/example/package.json", ["M:/work/github/license-info-printer/example/node_modules"]);
+let a = lll;
