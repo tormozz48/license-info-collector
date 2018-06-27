@@ -132,13 +132,12 @@ function resolveRawDependencies(contents: (PackageContent & RawPackageDependenci
 }
 
 function removeUnreferencedContents(contents: (PackageContent & PackageDependencies)[], targetPackage: (PackageContent & PackageDependencies)) {
-  let _contents: (PackageContent & PackageDependencies)[] = [
-    ...contents,
-    targetPackage
-  ];
-  return _contents.filter((content) => {
-    for(let c of _contents) {
-      if(c === content || c === targetPackage)
+  return contents.filter((content) => {
+    if(content === targetPackage) {
+      return true;
+    }
+    for(let c of contents) {
+      if(c === content)
         continue;
       
       if(c.packageDependencies.includes(content) || c.packageDevDependencies.includes(content) || c.packageOptionalDependencies.includes(content))
@@ -196,9 +195,9 @@ export function collectPackageInfos(packageJson: string, nodeModulePaths: string
 
   // removeDuplicates(contents);
   contents = groupSameContents(contents);
+  contents.push(JSON.parse(fs.readFileSync(packageJson).toString()));
   const resolvedContents = resolveRawDependencies(contents);
-  const packageContents = JSON.parse(fs.readFileSync(packageJson).toString());
-  return removeUnreferencedContents(resolvedContents, packageContents);
+  return removeUnreferencedContents(resolvedContents, resolvedContents[resolvedContents.length - 1]);
 }
 
 export function findInvalidPackageContent(
