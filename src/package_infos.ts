@@ -222,6 +222,3 @@ for(let content of packageContents) {
 }
 return invalid;
 }
-
-let lll = collectPackageInfos("M:/work/github/license-info-printer/example/package.json", ["M:/work/github/license-info-printer/example/node_modules"]);
-let a = lll;
