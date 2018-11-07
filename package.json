@@ -5,8 +5,9 @@
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
   "scripts": {
-    "prepublishOnly": "tsc",
-    "build": "tsc"
+    "postinstall": "npm run build",
+    "build": "tsc",
+    "start": "node index.js"
   },
   "author": "Volume Graphics GmbH",
   "homepage": "https://www.volumegraphics.com/",
@@ -28,6 +29,8 @@
     "typescript": "^2.8.3"
   },
   "dependencies": {
-    "semver": "^5.5.0"
+    "lodash": "^4.17.11",
+    "semver": "^5.5.0",
+    "tfk-json-to-xlsx": "^1.0.11"
   }
 }

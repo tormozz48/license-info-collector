@@ -138,7 +138,7 @@ function removeUnreferencedContents(contents: (PackageContent & PackageDependenc
     for(let c of contents) {
       if(c === content)
         continue;
-      
+
       if(c.packageDependencies.includes(content) || c.packageDevDependencies.includes(content) || c.packageOptionalDependencies.includes(content))
         return true;
     }
@@ -167,7 +167,7 @@ export function collectPackageInfos(packageJson: string, nodeModulePaths: string
     for(let license of deprecatedContent.licenses) {
       if(!license.type)
         continue;
-        
+
       types.push(license.type);
     }
 
@@ -188,7 +188,7 @@ export function collectPackageInfos(packageJson: string, nodeModulePaths: string
     const packageContent: PackageContent & RawPackageDependencies = contents;
     packageContent.packageJson = [file];
     transformDeprecatedContent(packageContent, contents);
-    
+
     return packageContent;
   });
 
@@ -202,8 +202,8 @@ export function collectPackageInfos(packageJson: string, nodeModulePaths: string
 }
 
 export function findInvalidPackageContent(
-  packageContents: (PackageContent & PackageDependencies)[], 
-  allowedLicenses: License[], 
+  packageContents: (PackageContent & PackageDependencies)[],
+  allowedLicenses: License[],
   evaluateCopyrightInfo: (content: PackageContent) => boolean
 ) {
 
